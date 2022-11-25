@@ -41,4 +41,12 @@ public class BaseEntity<ID extends Serializable> {
     public Timestamp getUpdateAt() {
         return updateAt;
     }
+
+    public void setCreateAt(Timestamp createAt) {
+        this.createAt = createAt;
+    }
+
+    public void setUpdateAt(Timestamp updateAt) {
+        this.updateAt = updateAt;
+    }
 }

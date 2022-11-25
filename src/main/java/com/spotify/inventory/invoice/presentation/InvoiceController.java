@@ -2,6 +2,6 @@ package com.spotify.inventory.invoice.presentation;
 
 import org.springframework.web.bind.annotation.RestController;
 
-@RestControllerg
+@RestController
 public class InvoiceController {
 }
