@@ -1,4 +1,4 @@
-package com.example.inventory;
+package com.spotify.inventory;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
