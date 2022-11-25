@@ -4,6 +4,8 @@ import com.spotify.inventory.basedomin.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
+import java.sql.Timestamp;
+
 @Entity
 public class Attribute extends BaseEntity<Long> {
     @Column(nullable = false)
@@ -14,12 +16,18 @@ public class Attribute extends BaseEntity<Long> {
     public Attribute() {
     }
 
+    public Attribute(Timestamp createAt, Timestamp updateAt, String name, String value) {
+        super(createAt, updateAt);
+        this.name = name;
+        this.value = value;
+    }
+
     private Attribute(String name, String value) {
         this.name = name;
         this.value = value;
     }
 
-    public Attribute createAttribute(String name, String value) {
+    public static Attribute createAttribute(String name, String value) {
         if (value.length() > 3 && name.length() > 3)
             return new Attribute(name, value);
         throw new RuntimeException("invalid value");
