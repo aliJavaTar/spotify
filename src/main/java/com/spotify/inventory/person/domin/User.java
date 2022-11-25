@@ -36,7 +36,8 @@ public class User extends BaseEntity<Long> {
         this.isAdmin = isAdmin;
     }
 
-    public User createPerson(String name, String email, String username, String password, boolean isAdmin) throws InvalidPropertiesFormatException {
+    public User createPerson(String name, String email, String username, String password, boolean isAdmin)
+            throws InvalidPropertiesFormatException {
         if (isValidEmail(email) || isValidPassword(password) || isValidUsername(username))
             return new User(name, email, username, password, isAdmin);
         throw new InvalidPropertiesFormatException("invalid information");
