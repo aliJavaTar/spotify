@@ -14,6 +14,9 @@ public class Invoice extends BaseEntity<Long> {
     @Column(nullable = false)
     private String description;
 
+    @Column(name = "user_id", nullable = false)
+    private Long userID;
+
     public Invoice() {
     }
 

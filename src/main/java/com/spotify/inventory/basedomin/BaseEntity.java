@@ -19,6 +19,10 @@ public class BaseEntity<ID extends Serializable> {
     public BaseEntity() {
     }
 
+    public BaseEntity(ID id) {
+        this.id = id;
+    }
+
     public BaseEntity(Timestamp createAt, Timestamp updateAt) {
         this.createAt = createAt;
         this.updateAt = updateAt;

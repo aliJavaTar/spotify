@@ -1,12 +1,17 @@
 package com.spotify.inventory.person.domin;
 
 import com.spotify.inventory.basedomin.BaseEntity;
+import com.spotify.inventory.invoice.domin.Invoice;
+import com.spotify.inventory.order.domin.Order;
+import com.spotify.inventory.request.domin.Request;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Min;
 
 import java.sql.Timestamp;
 import java.util.InvalidPropertiesFormatException;
+import java.util.List;
 import java.util.regex.Pattern;
 
 @Entity
@@ -24,6 +29,13 @@ public class User extends BaseEntity<Long> {
     private String phoneNumber;
     @Column(name = "is_admin", nullable = false)
     private boolean isAdmin;
+    @OneToMany(mappedBy = "userID")
+    private List<Request> request;
+
+    @OneToMany(mappedBy = "userID")
+    private List<Invoice> invoices;
+    @OneToMany(mappedBy = "userId")
+    private List<Order> orders;
 
     public User() {
 
@@ -44,7 +56,7 @@ public class User extends BaseEntity<Long> {
     }
 
     public static User createPerson(String name, String email, String username,
-                             String password, boolean isAdmin, Timestamp createAt, Timestamp updateAt)
+                                    String password, boolean isAdmin, Timestamp createAt, Timestamp updateAt)
             throws InvalidPropertiesFormatException {
         if (isValidEmail(email) || isValidPassword(password) || isValidUsername(username))
             return new User(name, email, username, password, isAdmin, createAt, updateAt);
@@ -73,6 +85,14 @@ public class User extends BaseEntity<Long> {
 
     public boolean isAdmin() {
         return isAdmin;
+    }
+
+    public List<Request> getRequest() {
+        return request;
+    }
+
+    public List<Invoice> getInvoices() {
+        return invoices;
     }
 
     private static boolean isValidPassword(String password) {
