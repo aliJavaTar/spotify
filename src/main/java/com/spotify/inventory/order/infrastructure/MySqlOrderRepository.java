@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 @Component
-public class MySqlOrderRepository implements OrderRepository {
+public class MySqlOrderRepository implements OrderRepository{
     private final JpaRepository<Order, Long> orderRepository;
 
     public MySqlOrderRepository(JpaRepository<Order, Long> orderRepository) {
