@@ -21,7 +21,6 @@ public class Order extends BaseEntity<Long> {
             inverseJoinColumns = {@JoinColumn(name = "product_id")})
     private List<Product> product;
 
-
     private int code;
 
     public Order() {
