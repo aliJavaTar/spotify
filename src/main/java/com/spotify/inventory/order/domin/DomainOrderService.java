@@ -4,13 +4,8 @@ import com.spotify.inventory.order.infrastructure.OrderService;
 
 import java.util.Optional;
 
-public class DomainOrderService implements OrderService {
-
-    private final OrderRepository orderRepository;
-
-    public DomainOrderService(OrderRepository orderRepository) {
-        this.orderRepository = orderRepository;
-    }
+public record DomainOrderService(
+        OrderRepository orderRepository) implements OrderService {
 
 
     @Override
@@ -20,6 +15,6 @@ public class DomainOrderService implements OrderService {
 
     @Override
     public Order save(Order order) {
-      return  orderRepository.save(order);
+        return orderRepository.save(order);
     }
 }
