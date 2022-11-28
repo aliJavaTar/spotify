@@ -4,9 +4,7 @@ import com.spotify.inventory.order.infrastructure.OrderService;
 
 import java.util.Optional;
 
-public record DomainOrderService(
-        OrderRepository orderRepository) implements OrderService {
-
+public record DomainOrderService(OrderRepository orderRepository) implements OrderService {
 
     @Override
     public Optional<Order> findById(Long id) {
