@@ -13,10 +13,10 @@ public class BeanConfiguration {
         return new DomainOrderService(orderRepository);
     }
 
-    @Bean
-    OrderService orderServiceMongoDb(@Qualifier("mongoDbOrderRepository") OrderRepository orderRepository) {
-        return new DomainOrderService(orderRepository);
-    }
+//    @Bean
+//    OrderService orderServiceMongoDb(@Qualifier("mongoDbOrderRepository") OrderRepository orderRepository) {
+//        return new DomainOrderService(orderRepository);
+//    }
 //    @Bean
 //    OrderService orderServiceMongoDb(@Qualifier("mongoDbOrderRepository") OrderRepository orderRepository) {
 //        return new DomainOrderService(orderRepository);

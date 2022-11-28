@@ -15,7 +15,7 @@ public class Product extends BaseEntity<Long> {
     private String name;
     private BigInteger price;
     private String description;
-    @Column(name = "category_id", nullable = false)
+    @Column(name = "products", nullable = false)
     private Long categoryId;
 
     @ManyToOne

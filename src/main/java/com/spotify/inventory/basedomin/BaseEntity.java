@@ -1,14 +1,13 @@
 package com.spotify.inventory.basedomin;
 
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-@Entity
+
 @MappedSuperclass
 public class BaseEntity<ID extends Serializable> {
     @Id
