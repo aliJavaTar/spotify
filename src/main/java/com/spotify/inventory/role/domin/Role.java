@@ -1,4 +1,4 @@
-package com.spotify.inventory.role;
+package com.spotify.inventory.role.domin;
 
 import com.spotify.inventory.basedomin.BaseEntity;
 import com.spotify.inventory.person.domin.User;
