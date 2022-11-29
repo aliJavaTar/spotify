@@ -3,55 +3,42 @@ package com.spotify.inventory.category.domain;
 
 import com.spotify.inventory.basedomin.BaseEntity;
 import com.spotify.inventory.product.domin.Product;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.sql.Timestamp;
 import java.util.List;
 
 
 @Entity
-
+@Table(name = "categoryes") //todo column name
 public class Category extends BaseEntity<Long> {
     private String name;
-    @Column(nullable = false, columnDefinition = "int default 0")
-    private Long parentId;
 
-    @OneToMany(mappedBy = "parentId")
-    private List<Category> categories;
-
-    @OneToMany(mappedBy = "categoryId")
-    private List<Product> products;
+    @ManyToOne
+    @JoinColumn(name = "parent_id")
+    private Category parent;
 
 
     public Category() {
     }
 
-    public Category(String name, Long parentId) {
+    public Category(String name, Category parent) {
         this.name = name;
-        this.parentId = parentId;
+        this.parent = parent;
     }
 
-    public Category(Timestamp createAt, Timestamp updateAt, String name, Long parentId) {
+    public Category(Timestamp createAt, Timestamp updateAt, String name, Category parent) {
         super(createAt, updateAt);
         this.name = name;
-        this.parentId = parentId;
+        this.parent=parent;
     }
 
     public String getName() {
         return name;
     }
 
-    public Long getParentId() {
-        return parentId;
+    public Category getParent() {
+        return parent;
     }
 
-    public List<Category> getCategories() {
-        return categories;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
 }

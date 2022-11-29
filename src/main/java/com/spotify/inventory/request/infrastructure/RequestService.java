@@ -1,4 +1,4 @@
-package com.spotify.inventory.request.infrastructure;
-
-public interface RequestService {
-}
+//package com.spotify.inventory.request.infrastructure;
+//
+//public interface RequestService {
+//}
