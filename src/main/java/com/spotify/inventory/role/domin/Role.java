@@ -10,10 +10,10 @@ import java.util.Set;
 public class Role extends BaseEntity<Long> {
 
     private String name;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "roles_users",
             joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"))
     private Set<User> users;
-//
 }

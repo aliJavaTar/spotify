@@ -2,6 +2,8 @@ package com.spotify.inventory.invoice.domin;
 
 
 import com.spotify.inventory.basedomin.BaseEntity;
+import com.spotify.inventory.order.domin.Order;
+import com.spotify.inventory.person.domin.User;
 import com.spotify.inventory.product.domin.Product;
 import jakarta.persistence.*;
 
@@ -10,22 +12,16 @@ import java.util.List;
 
 @Entity
 public class Invoice extends BaseEntity<Long> {
+
     @Column(nullable = false)
     private int expiredAt;
+
     @Column(nullable = false)
     private String description;
 
-//    @Column(name = "user_id", nullable = false)
-//    private Long userID;
 
-
-    @ManyToMany
-    @JoinTable(
-            name = "Invoice_product",
-            joinColumns = {@JoinColumn(name = "Invoice_id") },
-            inverseJoinColumns = {@JoinColumn(name = "product_id")}
-    )
-    private List<Product> products;
+    @OneToOne
+    private Order order;
 
 
     public Invoice() {

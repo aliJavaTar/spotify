@@ -1,11 +1,12 @@
 package com.spotify.inventory.attribute.domain;
 
 import com.spotify.inventory.basedomin.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import com.spotify.inventory.category.domain.Category;
+import com.spotify.inventory.product.domin.Product;
+import jakarta.persistence.*;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name = "attribute")  //todo name
@@ -15,11 +16,13 @@ public class Attribute extends BaseEntity<Long> {
     @Column(nullable = false)
     private String value;
 
-    //todo attribute many to many
+    @ManyToMany
+    @JoinTable(
+            name = "attribute_categoty",
+            joinColumns = {@JoinColumn(name = "attribute_id")},
+            inverseJoinColumns = {@JoinColumn(name = "categoty_id")})
 
-
-
-
+    private List<Category> categories;
 
     public Attribute() {
     }

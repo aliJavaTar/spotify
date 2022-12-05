@@ -9,10 +9,10 @@ import java.util.List;
 
 @Entity
 public class Order extends BaseEntity<Long> {
-    //delete
+
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private User userId;
+    private User user;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
@@ -26,19 +26,12 @@ public class Order extends BaseEntity<Long> {
     public Order() {
     }
 
-    public Order(User userId, List<Product> product, int code) {
-        this.userId = userId;
+    public Order(User user, List<Product> product, int code) {
+        this.user = user;
         this.product = product;
         this.code = code;
     }
 
-    public User getUserId() {
-        return userId;
-    }
-
-    public void setUserId(User userId) {
-        this.userId = userId;
-    }
 
     public List<Product> getProduct() {
         return product;

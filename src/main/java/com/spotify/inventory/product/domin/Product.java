@@ -14,10 +14,8 @@ public class Product extends BaseEntity<Long> {
     private BigInteger price;
     private String description;
 
-    //    private Status status;
-    /*
-    todo status product
-     */
+    private Long uniqueCode;
+
     @ManyToOne
     @JoinColumn(name = "category_Id")
     private Category category;
@@ -26,9 +24,7 @@ public class Product extends BaseEntity<Long> {
     @JoinTable(
             name = "attribute_product",
             joinColumns = {@JoinColumn(name = "attribute_id")},
-            inverseJoinColumns = {@JoinColumn(name = "product_id")}
-    )
-
+            inverseJoinColumns = {@JoinColumn(name = "product_id")})
 
     private List<Attribute> attribute;
 
