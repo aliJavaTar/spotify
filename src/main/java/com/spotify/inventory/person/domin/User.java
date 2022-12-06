@@ -3,7 +3,7 @@ package com.spotify.inventory.person.domin;
 import com.spotify.inventory.basedomin.BaseEntity;
 import com.spotify.inventory.invoice.domin.Invoice;
 import com.spotify.inventory.order.domin.Order;
-import com.spotify.inventory.request.domin.Request;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
@@ -29,12 +29,9 @@ public class User extends BaseEntity<Long> {
     private String phoneNumber;
     @Column(name = "is_admin", nullable = false)
     private boolean isAdmin;
-    @OneToMany(mappedBy = "userID")
-    private List<Request> request;
 
-    @OneToMany(mappedBy = "userID")
-    private List<Invoice> invoices;
-    @OneToMany(mappedBy = "userId")
+
+    @OneToMany(mappedBy = "user")
     private List<Order> orders;
 
     public User() {
@@ -85,14 +82,6 @@ public class User extends BaseEntity<Long> {
 
     public boolean isAdmin() {
         return isAdmin;
-    }
-
-    public List<Request> getRequest() {
-        return request;
-    }
-
-    public List<Invoice> getInvoices() {
-        return invoices;
     }
 
     private static boolean isValidPassword(String password) {

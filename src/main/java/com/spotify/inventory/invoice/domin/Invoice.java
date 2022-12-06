@@ -44,4 +44,8 @@ public class Invoice extends BaseEntity<Long> {
     public String getDescription() {
         return description;
     }
+
+    public Order getOrder() {
+        return order;
+    }
 }

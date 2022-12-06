@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "attribute")
@@ -23,8 +24,7 @@ public class Attribute extends BaseEntity<Long> {
 
     private List<Category> categories;
 
-    public Attribute() {
-    }
+    public Attribute() {}
 
     public Attribute(Timestamp createAt, Timestamp updateAt, String name, String value) {
         super(createAt, updateAt);
@@ -51,5 +51,24 @@ public class Attribute extends BaseEntity<Long> {
 
     public String getValue() {
         return value;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Attribute attribute = (Attribute) o;
+        return name.equals(attribute.name) &&
+                value.equals(attribute.value) &&
+                categories.equals(attribute.categories);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, value, categories);
     }
 }

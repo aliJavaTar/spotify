@@ -1,5 +1,7 @@
 package com.spotify.inventory.attribute.domain;
 
+import java.util.Optional;
+
 public interface AttributeRepository {
-    Attribute save(Attribute attribute);
+    Optional<Attribute> save(Attribute attribute);
 }
