@@ -21,8 +21,8 @@ class AttributeControllerTest {
     @Test
     void shouldCreateAttribute() throws Exception {
         Attribute request = Attribute.createAttribute("good", "best");
-
         Attribute attribute = Attribute.createAttribute("good", "best");
+
         this.mock.perform(MockMvcRequestBuilders
                         .post("/attributes/api-v1")
                         .contentType(MediaType.APPLICATION_JSON)

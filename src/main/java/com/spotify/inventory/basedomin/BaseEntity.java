@@ -1,6 +1,8 @@
 package com.spotify.inventory.basedomin;
 
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 
@@ -11,6 +13,7 @@ import java.sql.Timestamp;
 @MappedSuperclass
 public class BaseEntity<ID extends Serializable> {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private ID id;
     private Timestamp createAt;
     private Timestamp updateAt;
@@ -18,19 +21,15 @@ public class BaseEntity<ID extends Serializable> {
     public BaseEntity() {
     }
 
-    public BaseEntity(ID id) {
-        this.id = id;
-    }
+
 
     public BaseEntity(Timestamp createAt, Timestamp updateAt) {
         this.createAt = createAt;
         this.updateAt = updateAt;
     }
 
-    public BaseEntity(ID id, Timestamp createAt, Timestamp updateAt) {
+    public void setId(ID id) {
         this.id = id;
-        this.createAt = createAt;
-        this.updateAt = updateAt;
     }
 
     public ID getId() {
