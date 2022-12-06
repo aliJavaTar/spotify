@@ -2,14 +2,13 @@ package com.spotify.inventory.attribute.domain;
 
 import com.spotify.inventory.basedomin.BaseEntity;
 import com.spotify.inventory.category.domain.Category;
-import com.spotify.inventory.product.domin.Product;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
-@Table(name = "attribute")  //todo name
+@Table(name = "attribute")
 public class Attribute extends BaseEntity<Long> {
     @Column(nullable = false)
     private String name;

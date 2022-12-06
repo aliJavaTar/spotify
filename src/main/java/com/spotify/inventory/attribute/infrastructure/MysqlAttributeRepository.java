@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DefaultAttributeRepository extends AttributeRepository, JpaRepository<Attribute, Long> {
+public interface MysqlAttributeRepository extends AttributeRepository, JpaRepository<Attribute, Long> {
 }
