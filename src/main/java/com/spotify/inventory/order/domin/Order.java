@@ -48,4 +48,12 @@ public class Order extends BaseEntity<Long> {
     public void setCode(int code) {
         this.code = code;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

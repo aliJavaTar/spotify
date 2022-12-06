@@ -41,4 +41,11 @@ public class Category extends BaseEntity<Long> {
         return parent;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setParent(Category parent) {
+        this.parent = parent;
+    }
 }

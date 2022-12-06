@@ -48,4 +48,16 @@ public class Invoice extends BaseEntity<Long> {
     public Order getOrder() {
         return order;
     }
+
+    public void setExpiredAt(int expiredAt) {
+        this.expiredAt = expiredAt;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
 }

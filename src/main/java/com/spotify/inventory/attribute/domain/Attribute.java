@@ -37,7 +37,17 @@ public class Attribute extends BaseEntity<Long> {
         this.value = value;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
 
     public static Attribute createAttribute(String name, String value) {
         if (value.length() > 3 && name.length() > 3)
