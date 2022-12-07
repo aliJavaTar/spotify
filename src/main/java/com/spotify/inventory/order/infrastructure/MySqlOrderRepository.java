@@ -3,13 +3,26 @@ package com.spotify.inventory.order.infrastructure;
 
 import com.spotify.inventory.order.domin.Order;
 import com.spotify.inventory.order.domin.OrderRepository;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-@Repository
-public interface MySqlOrderRepository extends OrderRepository, JpaRepository<Order, Long> {
+@Component
+public class MySqlOrderRepository implements OrderRepository {
 
+    private final DefaultOrderRepository orderRepository;
+
+    public MySqlOrderRepository(DefaultOrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+    }
+
+    @Override
+    public Optional<Order> findById(Long id) {
+        return orderRepository.findById(id);
+    }
+
+    @Override
+    public Order save(Order order) {
+        return orderRepository.save(order);
+    }
 }

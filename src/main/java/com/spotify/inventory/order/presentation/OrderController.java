@@ -1,7 +1,7 @@
 package com.spotify.inventory.order.presentation;
 
 import com.spotify.inventory.order.domin.Order;
-import com.spotify.inventory.order.infrastructure.OrderService;
+import com.spotify.inventory.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
