@@ -13,7 +13,7 @@ public class DefaultUserRepository implements UserRepository {
     public DefaultUserRepository(MysqlUserRepository mysqlUserRepository) {
         this.mysqlUserRepository = mysqlUserRepository;
     }
-
+    @Override
     public Optional<User> addUser(User user) {
         return Optional.of(mysqlUserRepository.save(user));
     }
