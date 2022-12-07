@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 public class Product extends BaseEntity<Long> {
     private String name;
-    private BigInteger price;
+    private Long price;
     private String description;
 
     private Long uniqueCode;
@@ -32,7 +32,7 @@ public class Product extends BaseEntity<Long> {
     }
 
 
-    private Product(String name, BigInteger price, String description, Category category) {
+    private Product(String name, Long price, String description, Category category) {
         this.name = name;
         this.price = price;
         this.description = description;
@@ -40,7 +40,7 @@ public class Product extends BaseEntity<Long> {
 
     }
 
-    public static Product createProduct(String name, BigInteger price, String description, Category category) {
+    public static Product createProduct(String name, Long price, String description, Category category) {
         if (name.length() > 3)
             return new Product(name, price, description, category);
         throw new RuntimeException("invalid value");
@@ -50,7 +50,7 @@ public class Product extends BaseEntity<Long> {
         return name;
     }
 
-    public BigInteger getPrice() {
+    public Long getPrice() {
         return price;
     }
 
@@ -58,6 +58,9 @@ public class Product extends BaseEntity<Long> {
         return description;
     }
 
+    public Long getUniqueCode() {
+        return uniqueCode;
+    }
 
     public Category getCategory() {
         return category;
