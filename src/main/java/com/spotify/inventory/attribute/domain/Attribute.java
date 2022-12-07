@@ -2,6 +2,7 @@ package com.spotify.inventory.attribute.domain;
 
 import com.spotify.inventory.basedomin.BaseEntity;
 import com.spotify.inventory.category.domain.Category;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -12,8 +13,10 @@ import java.util.Objects;
 @Table(name = "attribute")
 public class Attribute extends BaseEntity<Long> {
     @Column(nullable = false)
+    @Nullable
     private String name;
     @Column(nullable = false)
+    @Nullable
     private String value;
 
     @ManyToMany
@@ -36,24 +39,14 @@ public class Attribute extends BaseEntity<Long> {
         this.name = name;
         this.value = value;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public void setCategories(List<Category> categories) {
-        this.categories = categories;
-    }
-
     public static Attribute createAttribute(String name, String value) {
         if (value.length() > 3 && name.length() > 3)
             return new Attribute(name, value);
         throw new RuntimeException("invalid value");
     }
+
+
+
 
     public String getName() {
         return name;
