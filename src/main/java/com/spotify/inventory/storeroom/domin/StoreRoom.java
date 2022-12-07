@@ -11,7 +11,7 @@ import jakarta.persistence.ManyToMany;
 import java.util.List;
 
 @Entity
-public class Storeroom extends BaseEntity<Long> {
+public class StoreRoom extends BaseEntity<Long> {
 
 //    private Location location;
 
